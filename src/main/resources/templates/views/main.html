@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="index :: setHead(~{::head})">
+    <th:block th:fragment="head">
+        <title>Main</title>
+    </th:block>
+</th:block>
+<th:block th:replace="index :: setContent(~{::content})">
+    <th:block th:fragment="content">
+        <div>test</div>
+    </th:block>
+</th:block>
