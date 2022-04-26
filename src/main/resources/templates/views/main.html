@@ -7,6 +7,26 @@
 </th:block>
 <th:block th:replace="index :: setContent(~{::content})">
     <th:block th:fragment="content">
-        <div>test</div>
+        <div>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>IDX</th>
+                    <th>TITLE</th>
+                    <th>UPLOAD TIME</th>
+                </tr>
+                </thead>
+                <tbody id="boardTable">
+                <tr th:each="board : ${boardList}">
+                    <td th:text="${board.id}"></td>
+                    <td><a th:href="@{/board/{id}/detail(id=${board.id})}" th:text="${board.title}"></a></td>
+                    <td th:text="${#temporals.format(board.regDate, 'yyyy-MM-dd')}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <script th:inline="javascript">
+            let boardList = /*[[ ${boardList }]]*/ '';
+        </script>
     </th:block>
 </th:block>

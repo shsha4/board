@@ -6,6 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.transaction.Transactional;
 
+import java.util.stream.IntStream;
+
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
@@ -25,5 +27,20 @@ class BoardRepositoryTest {
         Board entity = boardRepository.findById(1L).get();
 
         assertThat(entity.getContent()).isEqualTo("내용");
+    }
+
+    /**
+     *  Board dummy data insert
+     * */
+    @Test
+    void 더미_데이터_생성() {
+        IntStream.range(1, 100).forEach(i -> {
+            Board board = Board.builder()
+                    .title("Title ... " + i)
+                    .content("Content ..." + i)
+                    .writer("Writer ..." + i)
+                    .build();
+            boardRepository.save(board);
+        });
     }
 }

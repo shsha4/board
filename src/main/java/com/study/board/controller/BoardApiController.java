@@ -13,11 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/board/apis")
 public class BoardApiController {
 
-    @GetMapping("/")
-    public String test() {
-        throw new CustomException(ErrorCode.POST_NOT_FOUND);
-    }
-
     @PostMapping
     public ResponseEntity<Board> saveBoard(@RequestBody Board board) {
 
