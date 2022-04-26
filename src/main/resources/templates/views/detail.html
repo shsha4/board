@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="index :: setHead(~{::head})">
+    <th:block th:fragment="head">
+        <title>Detail :: [[ ${board.title} ]]</title>
+    </th:block>
+</th:block>
+<th:block th:replace="index :: setContent(~{::content})">
+    <th:block th:fragment="content">
+        <div>
+            test
+        </div>
+        <script th:inline="javascript">
+            let board = /*[[ ${board} ]]*/ '';
+        </script>
+    </th:block>
+</th:block>
