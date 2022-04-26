@@ -14,3 +14,7 @@ sudo mysql -u root -p
 ```mariadb
 set password=password('password'); -- 이런 형식으로 패스워드 변경
 ```
+
+```
+BoardRepositoryTest Board Dummy Data 생성
+```
