@@ -1,6 +1,7 @@
 package com.study.board.service;
 
 import com.study.board.entity.board.Board;
+import com.study.board.entity.board.BoardDTO;
 
 import java.util.List;
 
@@ -18,16 +19,16 @@ public interface BoardService {
     /**
      * Board 리스트 조회
      *
-     * @return {@link List<Board>}
+     * @return {@link List<BoardDTO>}
      * */
-    List<Board> findAll();
+    List<BoardDTO> findAll();
 
     /**
      * Board 상세 조회
      *
      * @param id Board index
      *
-     * @return {@link Board}
+     * @return {@link BoardDTO}
      * */
-    Board findById(Long id);
+    BoardDTO findById(Long id);
 }
