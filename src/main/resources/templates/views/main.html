@@ -13,6 +13,7 @@
                 <tr>
                     <th>IDX</th>
                     <th>TITLE</th>
+                    <th>WRITER</th>
                     <th>UPLOAD TIME</th>
                 </tr>
                 </thead>
@@ -20,6 +21,7 @@
                 <tr th:each="board : ${boardList}">
                     <td th:text="${board.id}"></td>
                     <td><a th:href="@{/board/{id}/detail(id=${board.id})}" th:text="${board.title}"></a></td>
+                    <td th:text="${board.writer}"></td>
                     <td th:text="${#temporals.format(board.regDate, 'yyyy-MM-dd')}"></td>
                 </tr>
                 </tbody>
@@ -27,7 +29,6 @@
         </div>
         <script th:inline="javascript">
             let boardList = /*[[ ${boardList }]]*/ '';
-            console.log(boardList);
         </script>
     </th:block>
 </th:block>
