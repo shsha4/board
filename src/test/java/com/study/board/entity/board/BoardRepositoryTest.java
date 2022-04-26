@@ -1,16 +1,19 @@
 package com.study.board.entity.board;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.transaction.Transactional;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
+@Slf4j
 class BoardRepositoryTest {
     @Autowired
     BoardRepository boardRepository;
@@ -42,5 +45,14 @@ class BoardRepositoryTest {
                     .build();
             boardRepository.save(board);
         });
+    }
+
+    /**
+     * QueryDsl 적용 Custom Repository Test
+     */
+    @Test
+    void 조회_테스트() {
+        List<Board> list = boardRepository.findByTitle();
+        list.forEach(board -> System.out.println(board.getTitle()));
     }
 }
