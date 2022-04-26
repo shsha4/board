@@ -26,4 +26,14 @@ public class Reply extends BaseEntity {
     @JoinColumn(name = "board_id")
     Board board;
 
+    public ReplyDTO toDTO() {
+        return ReplyDTO.builder().
+                id(id).
+                writer(writer).
+                content(content).
+                modDate(getModDate()).
+                regDate(getRegDate()).
+                board(board.getId()).
+                build();
+    }
 }
