@@ -1,5 +1,6 @@
 package com.study.board.entity.board;
 
+import com.study.board.dto.BoardDTO;
 import com.study.board.entity.BaseEntity;
 import com.study.board.entity.reply.Reply;
 import lombok.*;

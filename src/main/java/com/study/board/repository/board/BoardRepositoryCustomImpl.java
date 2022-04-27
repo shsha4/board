@@ -1,6 +1,8 @@
-package com.study.board.entity.board;
+package com.study.board.repository.board;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.study.board.entity.board.Board;
+import com.study.board.entity.board.QBoard;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;

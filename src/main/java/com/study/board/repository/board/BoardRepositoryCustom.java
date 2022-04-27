@@ -1,4 +1,6 @@
-package com.study.board.entity.board;
+package com.study.board.repository.board;
+
+import com.study.board.entity.board.Board;
 
 import java.util.List;
 

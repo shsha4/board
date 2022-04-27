@@ -1,5 +1,6 @@
 package com.study.board.controller;
 
+import com.study.board.dto.PageRequestDTO;
 import com.study.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,8 +19,8 @@ public class BoardPageController {
     private final BoardService boardService;
 
     @GetMapping("/")
-    public String index(Model model) {
-        model.addAttribute("boardList", boardService.findAll());
+    public String index(PageRequestDTO requestDTO, Model model) {
+        model.addAttribute("boardList", boardService.getList(requestDTO));
         return "views/main";
     }
 

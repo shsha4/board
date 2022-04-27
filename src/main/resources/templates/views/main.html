@@ -8,7 +8,7 @@
 <th:block th:replace="index :: setContent(~{::content})">
     <th:block th:fragment="content">
         <div>
-            <table class="table table-bordered">
+            <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>IDX</th>
@@ -18,7 +18,7 @@
                 </tr>
                 </thead>
                 <tbody id="boardTable">
-                <tr th:each="board : ${boardList}">
+                <tr th:each="board : ${boardList.dtoList}">
                     <td th:text="${board.id}"></td>
                     <td><a th:href="@{/board/{id}/detail(id=${board.id})}" th:text="${board.title}"></a></td>
                     <td th:text="${board.writer}"></td>
@@ -26,6 +26,19 @@
                 </tr>
                 </tbody>
             </table>
+        </div>
+        <div>
+            <ul class="pagination h-100 justify-content-center align-items-center">
+                <li class="page-item" th:if="${boardList.prev}">
+                    <a class="page-link" th:href="@{/board/(page=${boardList.start - 1})}" tabindex="-1">Prev</a>
+                </li>
+                <li th:each="page : ${boardList.pageList}" th:class="'page-item ' + ${boardList.page == page ? 'active' : ''}">
+                    <a class="page-link" th:href="@{/board/(page = ${page})}">[[${page}]]</a>
+                </li>
+                <li class="page-item" th:if="${boardList.next}">
+                    <a class="page-link" th:href="@{/board/(page=${boardList.end + 1})}">Next</a>
+                </li>
+            </ul>
         </div>
         <script th:inline="javascript">
             let boardList = /*[[ ${boardList }]]*/ '';

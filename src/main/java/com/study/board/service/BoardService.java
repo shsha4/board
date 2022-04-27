@@ -1,7 +1,9 @@
 package com.study.board.service;
 
+import com.study.board.dto.PageRequestDTO;
+import com.study.board.dto.PageResultDTO;
 import com.study.board.entity.board.Board;
-import com.study.board.entity.board.BoardDTO;
+import com.study.board.dto.BoardDTO;
 
 import java.util.List;
 
@@ -31,4 +33,13 @@ public interface BoardService {
      * @return {@link BoardDTO}
      * */
     BoardDTO findById(Long id);
+
+    /**
+     *  Board 조회 페이징 처리
+     *
+     * @param requestDTO - PageRequestDTO 객체
+     *
+     * @return {@link PageResultDTO}
+     * */
+    PageResultDTO<BoardDTO, Board> getList(PageRequestDTO requestDTO);
 }

@@ -1,15 +1,14 @@
 package com.study.board.entity.reply;
 
 import com.study.board.entity.board.Board;
-import com.study.board.entity.board.BoardRepository;
+import com.study.board.repository.board.BoardRepository;
+import com.study.board.repository.reply.ReplyRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Slf4j
