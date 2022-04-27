@@ -1,6 +1,7 @@
-package com.study.board.entity.reply;
+package com.study.board.dto;
 
 import com.study.board.entity.board.Board;
+import com.study.board.entity.reply.Reply;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
