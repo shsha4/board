@@ -20,7 +20,7 @@
                 <tbody id="boardTable">
                 <tr th:each="board : ${boardList.dtoList}">
                     <td th:text="${board.id}"></td>
-                    <td><a th:href="@{/board/{id}/detail(id=${board.id})}" th:text="${board.title}"></a></td>
+                    <td><a th:href="@{/board/{id}/detail(id=${board.id})}" th:text="${board.title + ' [' + board.replyList.size() + ']'}"></a></td>
                     <td th:text="${board.writer}"></td>
                     <td th:text="${#temporals.format(board.regDate, 'yyyy-MM-dd')}"></td>
                 </tr>

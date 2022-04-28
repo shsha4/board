@@ -1,5 +1,6 @@
 package com.study.board.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.study.board.entity.board.Board;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,7 +19,9 @@ public class BoardDTO {
     private String title;
     private String content;
     private String writer;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     private LocalDateTime modDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     private LocalDateTime regDate;
     private List<ReplyDTO> replyList;
 
