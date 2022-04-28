@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor
 @Slf4j
-public class BoardRepositoryCustomImpl implements BoardRepositoryCustom{
+public class BoardRepositoryCustomImpl implements BoardRepositoryCustom {
     private final JPAQueryFactory queryFactory;
 
     @Override

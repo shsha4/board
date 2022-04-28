@@ -1,4 +1,4 @@
-package com.study.board.controller;
+package com.study.board.config.controller;
 
 import com.study.board.entity.board.Board;
 import com.study.board.exception.CustomException;

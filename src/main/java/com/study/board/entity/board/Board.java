@@ -4,6 +4,7 @@ import com.study.board.dto.BoardDTO;
 import com.study.board.entity.BaseEntity;
 import com.study.board.entity.reply.Reply;
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
 import java.util.List;
@@ -25,7 +26,8 @@ public class Board extends BaseEntity {
 
     private String writer;
 
-    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @BatchSize(size = 100)
     private List<Reply> replyList;
 
     public BoardDTO toDTO() {
