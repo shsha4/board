@@ -28,6 +28,22 @@ public class BoardServiceImpl implements BoardService{
     public Board saveBoard(Board board) {
         return boardRepository.save(board);
     }
+
+    @Override
+    public String save(BoardDTO boardDTO) {
+        Board board = boardDTO.toEntity();
+        Board saveBoard = boardRepository.save(board);
+        if (saveBoard.getId() != null)  {
+            return "Success";
+        }
+        return "Insert Failed";
+    }
+
+    @Override
+    public void delete(long id) {
+        boardRepository.deleteById(id);
+    }
+
     @Override
     public List<BoardDTO> findAll() {
         List<Board> boardList = boardRepository.findAll();

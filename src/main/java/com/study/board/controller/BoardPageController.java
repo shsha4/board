@@ -1,4 +1,4 @@
-package com.study.board.config.controller;
+package com.study.board.controller;
 
 import com.study.board.dto.PageRequestDTO;
 import com.study.board.service.BoardService;

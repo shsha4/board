@@ -17,6 +17,11 @@ public interface BoardService {
      * @return {@link Board}
      */
     Board saveBoard(Board board);
+    String save(BoardDTO boardDTO);
+    /**
+     * Board 삭제
+     * */
+    void delete(long id);
 
     /**
      * Board 리스트 조회

@@ -1,5 +1,6 @@
 package com.study.board.exception;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,6 +14,13 @@ public class BoardExceptionHandler {
         return ResponseEntity
                 .status(e.getErrorCode().getStatus().value())
                 .body(new ErrorResponse(e.getErrorCode()));
+    }
+
+    @ExceptionHandler(EmptyResultDataAccessException.class)
+    public ResponseEntity<ErrorResponse> EmptyResultDataHandler(EmptyResultDataAccessException e) {
+        return ResponseEntity
+                .status(ErrorCode.POST_NOT_FOUND.getStatus().value())
+                .body(new ErrorResponse(ErrorCode.POST_NOT_FOUND));
     }
 
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
