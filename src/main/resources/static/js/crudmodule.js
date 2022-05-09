@@ -22,5 +22,3 @@ let callApi = {
         })
     }
 }
-
-export default callApi;

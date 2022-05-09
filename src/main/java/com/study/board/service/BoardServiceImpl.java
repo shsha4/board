@@ -15,6 +15,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -31,7 +32,11 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     public String save(BoardDTO boardDTO) {
-        Board board = boardDTO.toEntity();
+        Board board = new Board();
+        if (boardDTO.getId() != null) {
+            board = boardRepository.findById(boardDTO.getId()).orElse(new Board());
+        }
+        board = boardDTO.toEntity();
         Board saveBoard = boardRepository.save(board);
         if (saveBoard.getId() != null)  {
             return "Success";

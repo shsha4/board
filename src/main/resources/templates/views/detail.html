@@ -3,20 +3,22 @@
 <th:block th:replace="index :: setHead(~{::head})">
     <th:block th:fragment="head">
         <title>Detail :: [[ ${board.title} ]]</title>
+        <script src="/js/crudmodule.js"></script>
     </th:block>
 </th:block>
 <th:block th:replace="index :: setContent(~{::content})">
     <th:block th:fragment="content">
         <form id="boardForm">
             <div class="mb-3">
+                <input type="hidden" id="boardId" th:value="${board.id}">
                 <label class="form-label" for="title">제목</label>
                 <input class="form-control" id="title" name="title" type="text" placeholder="title"
                        th:value="${board.title}">
             </div>
             <div class="mb-3">
-                <label class="form-label" for="content">내용</label>
-                <textarea class="form-control" id="content" name="content" maxlength="500"
-                          th:value="${board.content}"></textarea>
+                <label class="form-label" for="boardContent">내용</label>
+                <textarea class="form-control" id="boardContent" name="content" maxlength="500"
+                          th:text="${board.content}"></textarea>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="writer">작성자</label>
@@ -26,14 +28,13 @@
             <button id="deleteBtn" type="button" class="btn btn-lg btn-danger">삭제</button>
         </form>
         <script th:inline="javascript">
-            import callApi from "../../static/js/crudmodule";
-
             let board = /*[[ ${board} ]]*/ '';
 
             $('#saveBtn').on('click', () => {
                 let dto = {
+                    "id": $('#boardId').val(),
                     "title": $('#title').val(),
-                    "content": $('#content').val(),
+                    "content": $('#boardContent').val(),
                     "writer": $('#writer').val()
                 }
                 callApi.save(JSON.stringify(dto));

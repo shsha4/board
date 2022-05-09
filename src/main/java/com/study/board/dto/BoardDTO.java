@@ -27,6 +27,7 @@ public class BoardDTO {
 
     public Board toEntity() {
         return Board.builder().
+                id(id).
                 title(title).
                 content(content).
                 writer(writer).
